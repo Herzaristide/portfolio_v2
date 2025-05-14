@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  font-family: 'General sans', sans-serif;
+  width: 100dvw; /* dvw solve the scrollbar dimension problem */
+  overflow-x: hidden;
+}
