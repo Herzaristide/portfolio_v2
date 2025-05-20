@@ -10,7 +10,6 @@ import Resume from './components/Resume';
 import './i18n';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +39,7 @@ function App() {
       <Navigation dark={dark} setDark={setDark} />
       <div>
         <Home />
-        {/* <About /> */}
+        <About />
         <Works />
         <Projects />
         <Skills />

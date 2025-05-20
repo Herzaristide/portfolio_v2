@@ -5,7 +5,7 @@ import { RiBuilding2Line } from 'react-icons/ri';
 
 import Languages from './Languages';
 
-const Navigation = ({ dark, setDark }) => {
+const Navigation = ({ dark, setDark }: any) => {
   return (
     <section className='bg-gradient-to-r from-[#282828] to-[#0F0F0F] flex justify-center items-center fixed z-10 rounded-sm'>
       <div className='rounded-xl'>
