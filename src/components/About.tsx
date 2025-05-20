@@ -1,7 +1,7 @@
 const About = () => {
   return (
     <section id='about' className='relative h-dvh w-screen'>
-      About
+      <p>"La technologie est le trou du cul de la science"</p>
     </section>
   );
 };
