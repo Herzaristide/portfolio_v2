@@ -1,6 +1,6 @@
 const Contacts = () => {
   return (
-    <section id='contacts' className='relative h-dvh w-screen'>
+    <section id="contacts" className="relative h-dvh w-screen">
       Contacts
     </section>
   );

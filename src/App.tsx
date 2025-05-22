@@ -1,48 +1,75 @@
-import { useState } from 'react';
-import Navigation from './components/Navigation';
-import Home from './components/Home';
-import Works from './components/Works';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contacts from './components/Contacts';
-import Resume from './components/Resume';
-import './i18n';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { useRef, useState } from "react";
+import Navigation from "./components/Navigation";
+import Home from "./components/Home";
+import Works from "./components/Works";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Contacts from "./components/Contacts";
+import Resume from "./components/Resume";
+import "./i18n";
+import gsap from "gsap";
+import { ScrollSmoother, ScrollTrigger, ScrollToPlugin } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 
 function App() {
-  const [dark, setDark] = useState('');
+  const [dark, setDark] = useState("");
+  const smoother = useRef<ScrollSmoother | null>(null);
 
-  // const tl = gsap.timeline();
+  useGSAP(() => {
+    smoother.current = ScrollSmoother.create({
+      wrapper: "#main",
+      content: "#content",
+      smooth: 2,
+      effects: true,
+    });
 
-  // tl.from('#home', { xPercent: -100 });
+    gsap.from("#about", {
+      scrollTrigger: {
+        trigger: "#about",
+        scrub: true,
+        start: "top bottom",
+        end: "top top",
+      },
+      scaleX: 0,
+      transformOrigin: "left center",
+      ease: "none",
+    });
 
-  // useGSAP(() => {
-  //   ScrollTrigger.create({
-  //     // animation: tl,
-  //     trigger: '#home',
-  //     start: 'top top',
-  //     end: '+=300',
-  //     pin: true,
-  //   });
-  // });
+    gsap.from(".line", {
+      scrollTrigger: {
+        trigger: "#works",
+        scrub: true,
+        pin: true,
+        start: "top top",
+        end: "+=100%",
+      },
+      scaleX: 0,
+      transformOrigin: "left center",
+      ease: "none",
+    });
+  }, {});
+
+  const scrollTo = (location: string) => {
+    smoother.current?.scrollTo(location, true, "center center");
+  };
 
   return (
-    <main
-      className={`${
-        dark ? 'dark' : ''
-      } bg-white dark:bg-[#282828] relative min-h-screen w-screen flex justify-center dark:text-white`}
-    >
-      <Navigation dark={dark} setDark={setDark} />
-      <div>
+    <main className='relative w-screen flex justify-center ' id='wrapper'>
+      <Navigation dark={dark} setDark={setDark} scrollTo={scrollTo} />
+      <div
+        id='content'
+        className={`${
+          dark ? "dark" : ""
+        } bg-white dark:bg-black  dark:text-white text-black`}
+      >
         <Home />
         <About />
         <Works />
-        <Projects />
         <Skills />
+        <Projects />
         <Resume />
         <Contacts />
       </div>

@@ -1,26 +1,40 @@
-import i18next from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import i18next from "i18next";
+import { initReactI18next } from "react-i18next";
 
-import translationEN from './locales/en/translation.json';
-import translationFR from './locales/fr/translation.json';
-import translationDE from './locales/de/translation.json';
+import homeEN from "./locales/en/home.json";
+import homeFR from "./locales/fr/home.json";
+import homeDE from "./locales/de/home.json";
+
+import aboutEN from "./locales/en/about.json";
+import aboutFR from "./locales/fr/about.json";
+import aboutDE from "./locales/de/about.json";
+
+import worksEN from "./locales/en/works.json";
+import worksFR from "./locales/fr/works.json";
+import worksDE from "./locales/de/works.json";
 
 const resources = {
   en: {
-    translation: translationEN,
+    home: homeEN,
+    about: aboutEN,
+    works: worksEN,
   },
   fr: {
-    translation: translationFR,
+    home: homeFR,
+    about: aboutFR,
+    works: worksFR,
   },
   de: {
-    translation: translationDE,
+    home: homeDE,
+    about: aboutDE,
+    works: worksDE,
   },
 };
 
 i18next.use(initReactI18next).init({
   resources,
-  lng: 'en',
-  fallbackLng: 'en',
+  lng: "en",
+  fallbackLng: "en",
   keySeparator: false,
   interpolation: {
     escapeValue: false,

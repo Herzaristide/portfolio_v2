@@ -1,28 +1,32 @@
 {
-  "job": "Engineer",
   "capGemini": {
     "type": "Permanent contract",
     "role": "Data engineer",
-    "description": "Development of an ETL pipeline upstream of the application of an IA model to isolate energy consumption. Model result displayed on web application . Team of three peoples in agile SCRUM ( English )."
+    "company": "Cap Gemini Engineering",
+    "description": "OK"
   },
   "astek": {
     "type": "Permanent contract",
     "role": "Engineer",
+    "company": "Astek",
     "description": "Jira management and configuration."
   },
   "orange": {
     "type": "apprenticeship",
     "role": "Data engineer",
+    "company": "orange",
     "description": "Development and deployment of an ETL pipeline with volumetric and processing speed constraints. Team of five peoples in agile SCRUM."
   },
   "adeo": {
     "type": "internship",
     "role": "Frontend developer",
+    "company": "Adeo",
     "description": " Development of a cross-platform inventory management interface. Team of twenty peoples in agile SCRUM."
   },
   "enedis": {
     "type": "internship",
     "role": "Software developer",
+    "company": "Enedis",
     "description": ""
   }
 }
