@@ -1,58 +1,58 @@
-import { useRef, useState } from "react";
-import Navigation from "./components/Navigation";
-import Home from "./components/Home";
-import Works from "./components/Works";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contacts from "./components/Contacts";
-import Resume from "./components/Resume";
-import "./i18n";
-import gsap from "gsap";
-import { ScrollSmoother, ScrollTrigger, ScrollToPlugin } from "gsap/all";
-import { useGSAP } from "@gsap/react";
+import { useRef, useState } from 'react';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import Works from './components/Works';
+import About from './components/About';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contacts from './components/Contacts';
+import Resume from './components/Resume';
+import './i18n';
+import gsap from 'gsap';
+import { ScrollSmoother, ScrollTrigger, ScrollToPlugin } from 'gsap/all';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 
 function App() {
-  const [dark, setDark] = useState("");
+  const [dark, setDark] = useState<string>('');
   const smoother = useRef<ScrollSmoother | null>(null);
 
   useGSAP(() => {
     smoother.current = ScrollSmoother.create({
-      wrapper: "#main",
-      content: "#content",
+      wrapper: '#main',
+      content: '#content',
       smooth: 2,
       effects: true,
     });
 
-    gsap.from("#about", {
+    gsap.from('#about', {
       scrollTrigger: {
-        trigger: "#about",
+        trigger: '#about',
         scrub: true,
-        start: "top bottom",
-        end: "top top",
+        start: 'top bottom',
+        end: 'top top',
       },
       scaleX: 0,
-      transformOrigin: "left center",
-      ease: "none",
+      transformOrigin: 'left center',
+      ease: 'none',
     });
 
-    gsap.to(".path", {
+    gsap.to('.path', {
       scrollTrigger: {
-        trigger: "#works",
+        trigger: '#works',
         scrub: true,
         pin: true,
         // start: "center center",
         // end: "+=1000px",
       },
       xPercent: -75,
-      ease: "none",
+      ease: 'none',
     });
   }, {});
 
   const scrollTo = (location: string) => {
-    smoother.current?.scrollTo(location, true, "center center");
+    smoother.current?.scrollTo(location, true, 'center center');
   };
 
   return (
@@ -61,7 +61,7 @@ function App() {
       <div
         id='content'
         className={`${
-          dark ? "dark" : ""
+          dark ? 'dark' : ''
         } bg-white dark:bg-black  dark:text-white text-black`}
       >
         <Home />

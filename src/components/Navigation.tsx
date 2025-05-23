@@ -1,19 +1,24 @@
-import { LuSun, LuMoon } from "react-icons/lu";
-import { RiHomeLine } from "react-icons/ri";
-import { RiAccountPinCircleLine } from "react-icons/ri";
-import { RiBuilding2Line } from "react-icons/ri";
+import { LuSun, LuMoon } from 'react-icons/lu';
+import Languages from './Languages';
+import type { SetStateAction, Dispatch } from 'react';
 
-import Languages from "./Languages";
-
-const Navigation = ({ dark, setDark, scrollTo }: any) => {
+const Navigation = ({
+  dark,
+  setDark,
+  scrollTo,
+}: {
+  dark: string;
+  setDark: Dispatch<SetStateAction<string>>;
+  scrollTo: (location: string) => void;
+}) => {
   const links = [
-    "home",
-    "about",
-    "works",
-    "projects",
-    "skills",
-    "resume",
-    "contact",
+    'home',
+    'about',
+    'works',
+    'projects',
+    'skills',
+    'resume',
+    'contact',
   ];
   return (
     <section className='bg-gradient-to-r from-[#282828] to-[#0F0F0F] flex justify-center items-center fixed z-10 rounded-sm'>
@@ -69,7 +74,7 @@ const Navigation = ({ dark, setDark, scrollTo }: any) => {
             title='light'
             className='bg-transparent hover:bg-zinc-200 rounded-lg text-white p-3'
             onClick={() => {
-              setDark("");
+              setDark('');
             }}
           >
             <LuSun />
@@ -78,7 +83,7 @@ const Navigation = ({ dark, setDark, scrollTo }: any) => {
           <button
             title='dark'
             onClick={() => {
-              setDark("dark");
+              setDark('dark');
             }}
             className='bg-transparent hover:bg-zinc-200 rounded-lg text-white p-3'
           >
