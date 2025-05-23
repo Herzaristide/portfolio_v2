@@ -14,3 +14,12 @@ body {
   --color-green: #53dd75;
   --color-black: #282828;
 }
+
+:root::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

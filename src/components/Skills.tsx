@@ -12,7 +12,7 @@ const Skills = () => {
     "docker",
     "spark",
     "tailwind_css",
-    "node.js",
+    "nodejs",
     "hadoop",
     "next",
     "flink",
@@ -20,9 +20,9 @@ const Skills = () => {
 
   return (
     <section id='skills' className='relative h-dvh w-screen'>
-      <div className='flex flex-wrap gap-2 mx-60'>
+      <div className='flex flex-wrap gap-2 justify-center'>
         {skills.map((skill) => (
-          <SkillCard title={skill} />
+          <SkillCard skill={skill} />
         ))}
       </div>
     </section>

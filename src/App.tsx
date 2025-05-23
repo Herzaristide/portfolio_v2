@@ -38,16 +38,15 @@ function App() {
       ease: "none",
     });
 
-    gsap.from(".line", {
+    gsap.to(".path", {
       scrollTrigger: {
         trigger: "#works",
         scrub: true,
         pin: true,
-        start: "top top",
-        end: "+=100%",
+        // start: "center center",
+        // end: "+=1000px",
       },
-      scaleX: 0,
-      transformOrigin: "left center",
+      xPercent: -75,
       ease: "none",
     });
   }, {});

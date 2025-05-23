@@ -2,9 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import { ScrollTrigger, MotionPathPlugin } from "gsap/all";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -13,29 +11,22 @@ const Works = () => {
 
   const { t } = useTranslation();
 
-  const [job, setJob] = useState("capGemini");
+  const jobs = ["capGemini", "orange", "adeo", "enedis"];
 
   return (
-    <section
-      id='works'
-      className='relative h-dvh w-screen flex flex-col items-center justify-center'
-    >
-      <div className='flex-col flex justify-center text-center'>
-        <h1 className='font-bold text-5xl text-green'>
-          {t(`works:${job}:role`)}
-        </h1>
-        <h1 className='font-bold text-2xl'>{t(`works:${job}:company`)}</h1>
-        {t(`works:${job}:description`)}
-        <Button title='See more' />
+    <section id='works' className='relative h-dvh flex'>
+      <div className='path flex h-full'>
+        {jobs.map((job) => (
+          <div className='w-screen flex-col flex justify-center'>
+            <h1 className='font-extrabold text-9xl text-green'>
+              {t(`works:${job}:role`)}
+            </h1>
+            <h1 className='font-bold text-5xl'>{t(`works:${job}:company`)}</h1>
+            {/* <Button title='See more' /> */}
+          </div>
+        ))}
       </div>
-      <button
-        onClick={() => {
-          setJob("adeo");
-        }}
-      >
-        YTest
-      </button>
-      <span className='line w-full h-8 bg-green'></span>
+      <div className='bottom-1/4 m-auto left-0 right-0 w-8 h-8 absolute bg-white border-green border-2 rounded-full' />
     </section>
   );
 };

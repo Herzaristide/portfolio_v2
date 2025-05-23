@@ -1,6 +1,8 @@
-const SkillCard = ({ title }: { title: any }) => {
+const SkillCard = ({ skill }: { skill: any }) => {
   return (
-    <div className='rounded-2xl bg-green p-2 w-24 h-24 flex justify-center items-center dark:text-black'></div>
+    <div className='rounded-2xl border-green border-3 p-6 w-32 h-32 flex justify-center items-center dark:text-black hover:bg-green/25'>
+      <img src={`/icons/${skill}.svg`} alt={skill} />
+    </div>
   );
 };
 
